@@ -2,13 +2,13 @@ import React from "react";
 import { useRouter } from "next/router";
 import EventSummary from "../../components/event-detail/event-summary";
 import EventLogistics from "../../components/event-detail/event-logistics";
-import EventContext from "../../components/event-detail/event-content";
+import EventContent from "../../components/event-detail/event-content";
 import { getEventById } from "../../data/dummy-data";
 
 const EventsDetailsPage = () => {
 	const router = useRouter();
 
-	const eventId = router.query.id;
+	const eventId = router.query.eventId;
 
 	const event = getEventById(eventId);
 
@@ -25,9 +25,9 @@ const EventsDetailsPage = () => {
 				image={event.image}
 				imageAlt={event.title}
 			/>
-			<EventContext>
+			<EventContent>
 				<p>{event.description}</p>
-			</EventContext>
+			</EventContent>
 		</>
 	);
 };
